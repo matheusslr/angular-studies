@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Client } from '../client';
 
 @Component({
   selector: 'app-clients-form',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrl: './clients-form.component.css'
 })
 export class ClientsFormComponent {
+  client: Client;
+  name: string;
+
+  constructor() {
+    this.client = new Client();
+    this.client.name = "FirstName";
+    this.name = "LastName";
+  }
+
+  clicked (){
+    alert("Clicked");
+  }
 
 }
