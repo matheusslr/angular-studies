@@ -9,14 +9,16 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>ID:</label>
-                    <input type="text" class="form-control" disabled="true"/>
+                    <input type="text" class="form-control" [ngModel]="client.id"
+                    name="id" disabled="true"/>
                 </div>
             </div>
 
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Date registration:</label>
-                    <input type="text" class="form-control" disabled="true"/>
+                    <input type="text" class="form-control" [ngModel]="client.dateRegistration" 
+                    name="dateRegistration" disabled="true"/>
                 </div>
             </div>
         </div>
@@ -25,14 +27,14 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Name: *</label>
-                    <input type="text" class="form-control" [value]="name"/>
+                    <input type="text" class="form-control" [(ngModel)]="client.name" name="name"/>
                 </div>
             </div>
 
             <div class="col-md-6">
                 <div class="form-group">
                     <label>CPF: *</label>
-                    <input type="text" class="form-control"/>
+                    <input type="text" class="form-control" [(ngModel)]="client.cpf" name="cpf"/>
                 </div>
             </div>
         </div>

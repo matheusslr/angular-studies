@@ -8,16 +8,13 @@ import { Client } from '../client';
 })
 export class ClientsFormComponent {
   client: Client;
-  name: string;
 
   constructor() {
     this.client = new Client();
-    this.client.name = "FirstName";
-    this.name = "LastName";
   }
 
   clicked (){
-    alert("Clicked");
+    console.log(this.client);
   }
 
 }
