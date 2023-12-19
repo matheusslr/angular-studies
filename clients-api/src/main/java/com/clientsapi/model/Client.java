@@ -23,6 +23,6 @@ public class Client {
     @Column(nullable = false, length = 11)
     private String cpf;
     @JsonFormat(pattern = "dd/MM/yyyy")
-    @Column(name = "registration_date")
+    @Column(name = "registration_date", updatable = false)
     private LocalDate registrationDate;
 }

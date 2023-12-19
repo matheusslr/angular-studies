@@ -27,4 +27,18 @@ public class ClientService {
         return clientRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFound("No records found for this ID"));
     }
+
+    public void delete(Long id) {
+        Client clientToDelete = findById(id);
+        clientRepository.delete(clientToDelete);
+    }
+
+    public Client update(Client client) {
+        Client clientToUpdate = findById(client.getId());
+
+        clientToUpdate.setCpf(client.getCpf());
+        clientToUpdate.setName(client.getName());
+
+        return clientRepository.save(clientToUpdate);
+    }
 }
