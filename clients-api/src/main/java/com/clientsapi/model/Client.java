@@ -2,10 +2,13 @@ package com.clientsapi.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 
@@ -18,8 +21,11 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty
     @Column(nullable = false, length = 150)
     private String name;
+    @CPF
+    @NotNull
     @Column(nullable = false, length = 11)
     private String cpf;
     @JsonFormat(pattern = "dd/MM/yyyy")

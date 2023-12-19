@@ -5,6 +5,7 @@ import com.clientsapi.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<Client> save(@RequestBody Client client) {
+    public ResponseEntity<Client> save(@Validated @RequestBody Client client) {
         return new ResponseEntity<>(clientService.save(client), HttpStatus.CREATED);
     }
 
@@ -37,7 +38,7 @@ public class ClientController {
     }
 
     @PutMapping()
-    public ResponseEntity<Client> update(@RequestBody Client client){
+    public ResponseEntity<Client> update(@Validated @RequestBody Client client){
         return new ResponseEntity<>(clientService.update(client), HttpStatus.NO_CONTENT);
     }
 }
