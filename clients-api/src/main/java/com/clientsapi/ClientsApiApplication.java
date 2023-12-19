@@ -1,13 +1,13 @@
-package com.clientserver;
+package com.clientsapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ClientServerApplication {
+public class ClientsApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ClientServerApplication.class, args);
+		SpringApplication.run(ClientsApiApplication.class, args);
 	}
 
 }
