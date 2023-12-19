@@ -1,5 +1,6 @@
 package com.clientsapi.service;
 
+import com.clientsapi.exception.ResourceNotFound;
 import com.clientsapi.model.Client;
 import com.clientsapi.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,10 @@ public class ClientService {
     public Client save(Client client) {
         client.setRegistrationDate(LocalDate.now());
         return clientRepository.save(client);
+    }
+
+    public Client findById(Long id) {
+        return clientRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFound("No records found for this ID"));
     }
 }

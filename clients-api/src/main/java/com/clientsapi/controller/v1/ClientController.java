@@ -24,4 +24,9 @@ public class ClientController {
     public ResponseEntity<Client> save(@RequestBody Client client) {
         return new ResponseEntity<>(clientService.save(client), HttpStatus.CREATED);
     }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<Client> findById(@PathVariable(value = "id") Long id) {
+        return ResponseEntity.ok(clientService.findById(id));
+    }
 }
