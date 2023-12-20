@@ -2,6 +2,7 @@ package com.clientsapi.controller.v1;
 
 import com.clientsapi.model.Client;
 import com.clientsapi.service.ClientService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<Client> save(@Validated @RequestBody Client client) {
+    public ResponseEntity<Client> save(@Valid @RequestBody Client client) {
         return new ResponseEntity<>(clientService.save(client), HttpStatus.CREATED);
     }
 
@@ -37,8 +38,8 @@ public class ClientController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping()
-    public ResponseEntity<Client> update(@Validated @RequestBody Client client){
+    @PutMapping
+    public ResponseEntity<Client> update(@Valid @RequestBody Client client){
         return new ResponseEntity<>(clientService.update(client), HttpStatus.NO_CONTENT);
     }
 }

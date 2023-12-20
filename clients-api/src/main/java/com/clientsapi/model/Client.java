@@ -21,13 +21,16 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty
+
+    @NotEmpty(message = "{field.name.required}")
     @Column(nullable = false, length = 150)
     private String name;
-    @CPF
-    @NotNull
+
+    @CPF(message = "{field.cpf.invalid}")
+    @NotNull(message = "{field.cpf.required}")
     @Column(nullable = false, length = 11)
     private String cpf;
+
     @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(name = "registration_date", updatable = false)
     private LocalDate registrationDate;
