@@ -3,8 +3,7 @@
     <li class="breadcrumb-item active">Register</li>
 </ol>
 <div class="container">
-    {{ client.name }}
-    <form>
+    <form #clientForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -41,7 +40,7 @@
 
         <div class="row">
             <div class="col-md-2">
-                <button type="submit" class="btn btn-success" (click)="clicked()">
+                <button type="submit" class="btn btn-success">
                     <i class="fa fa-save"></i>
                     Save
                 </button>

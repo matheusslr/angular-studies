@@ -6,13 +6,13 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/clients")
+@CrossOrigin(originPatterns = {"${cors.originPatterns}"})
 public class ClientController {
     @Autowired
     private ClientService clientService;
@@ -39,7 +39,7 @@ public class ClientController {
     }
 
     @PutMapping
-    public ResponseEntity<Client> update(@Valid @RequestBody Client client){
+    public ResponseEntity<Client> update(@Valid @RequestBody Client client) {
         return new ResponseEntity<>(clientService.update(client), HttpStatus.NO_CONTENT);
     }
 }
