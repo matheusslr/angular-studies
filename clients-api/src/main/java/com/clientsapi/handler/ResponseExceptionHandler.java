@@ -3,6 +3,7 @@ package com.clientsapi.handler;
 import com.clientsapi.exception.BadRequestException;
 import com.clientsapi.exception.ExceptionResponse;
 import com.clientsapi.exception.ResourceNotFound;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -56,14 +57,7 @@ public class ResponseExceptionHandler {
         BindingResult bindingResult = ex.getBindingResult();
 
         List<String> errorDetails = bindingResult.getAllErrors().stream()
-                .map(error -> {
-                    if (error instanceof FieldError) {
-                        FieldError fieldError = (FieldError) error;
-                        return fieldError.getField() + ": " + error.getDefaultMessage();
-                    } else {
-                        return error.getObjectName() + ": " + error.getDefaultMessage();
-                    }
-                })
+                .map(DefaultMessageSourceResolvable::getDefaultMessage)
                 .collect(Collectors.toList());
 
         ExceptionResponse exceptionResponse = ExceptionResponse.builder()

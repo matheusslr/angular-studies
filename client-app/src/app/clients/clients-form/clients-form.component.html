@@ -4,6 +4,18 @@
 </ol>
 <div class="container">
     <form #clientForm="ngForm" (ngSubmit)="onSubmit()">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="success == true">
+                    Customer successfully saved!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
+                    {{ error }}
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -16,8 +28,8 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Date registration:</label>
-                    <input type="text" class="form-control" [ngModel]="client.dateRegistration" 
-                    name="dateRegistration" disabled="true"/>
+                    <input type="text" class="form-control" [ngModel]="client.registrationDate" 
+                    name="registrationDate" disabled="true"/>
                 </div>
             </div>
         </div>

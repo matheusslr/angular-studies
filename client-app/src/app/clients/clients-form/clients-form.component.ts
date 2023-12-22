@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Client } from '../client';
 import { ClientsService } from '../../clients.service';
+import { Client } from '../client';
 
 @Component({
   selector: 'app-clients-form',
@@ -9,6 +9,8 @@ import { ClientsService } from '../../clients.service';
 })
 export class ClientsFormComponent {
   client: Client;
+  success: boolean = false;
+  errors: String[] = [];
 
   constructor(private service: ClientsService) {
     this.client = new Client();
@@ -16,9 +18,17 @@ export class ClientsFormComponent {
 
   onSubmit() {
     this.service.save(this.client)
-    .subscribe(response => {
-      console.log(response);
-    });
+    .subscribe(
+      response => {
+        this.success = true;
+        this.errors = [];
+        this.client = response;
+      },
+      errorResponse => {
+        this.errors = errorResponse.error.errors;
+        this.success = false;
+      }
+    );
   }
 
 }
