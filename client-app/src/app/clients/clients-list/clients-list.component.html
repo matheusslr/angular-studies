@@ -1,0 +1,36 @@
+<h1 class="mt-4">Customers</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Our customers</li>
+</ol>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-warning" (click)="register()">
+                <i class="fa fa-plus"></i> New
+            </button>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed">
+                <thead>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>CPF</th>
+                    <th>Registration Date</th>
+                    <th></th>
+                </thead>
+                <tbody *ngFor="let client of clients">
+                    <tr>
+                        <td>{{client.id}}</td>
+                        <td>{{client.name}}</td>
+                        <td>{{client.cpf}}</td>
+                        <td>{{client.registrationDate}}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
