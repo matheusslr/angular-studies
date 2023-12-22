@@ -22,7 +22,11 @@ export class ClientsService {
     return this.http.get<Client>(`http://localhost:8080/api/v1/clients/${id}`);
   }
 
-  updateClient(client: Client): Observable<Client> {
+  update(client: Client): Observable<Client> {
     return this.http.put<Client>('http://localhost:8080/api/v1/clients', client);
+  }
+
+  delete(id: number): Observable<any>{
+    return this.http.delete<any>(`http://localhost:8080/api/v1/clients/${id}`);
   }
 }

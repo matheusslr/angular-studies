@@ -43,7 +43,7 @@ export class ClientsFormComponent implements OnInit {
 
   onSubmit() {
     if (this.id) {
-      this.service.updateClient(this.client)
+      this.service.update(this.client)
         .subscribe(
           response => {
             this.success = true;

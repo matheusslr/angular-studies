@@ -8,22 +8,40 @@ import { Client } from '../client';
   templateUrl: './clients-list.component.html',
   styleUrl: './clients-list.component.css'
 })
-export class ClientsListComponent implements OnInit{
+export class ClientsListComponent implements OnInit {
   clients: Client[] = [];
+  selectedClient!: Client;
+  successMessage!: String;
+  errorMessage!: String;
 
   constructor(
-    private clientService : ClientsService,
-    private router : Router
-    ){}
+    private clientService: ClientsService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.clientService.getClients()
-    .subscribe(
-      response => {this.clients = response}
-    )
+      .subscribe(
+        response => { this.clients = response }
+      )
   }
 
-  register(){
+  register() {
     this.router.navigate(['/clients-form'])
+  }
+
+  prepareDeletation(client: Client) {
+    this.selectedClient = client;
+  }
+
+  deleteClient() {
+    this.clientService.delete(this.selectedClient.id)
+      .subscribe(
+        response => {
+          this.successMessage = "Customer successfully deleted";
+          this.ngOnInit();
+        },
+        error => this.errorMessage = "Error when deleting customer"
+      )
   }
 }
