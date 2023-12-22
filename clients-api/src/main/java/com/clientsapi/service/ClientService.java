@@ -33,12 +33,12 @@ public class ClientService {
         clientRepository.delete(clientToDelete);
     }
 
-    public Client update(Client client) {
+    public void update(Client client) {
         Client clientToUpdate = findById(client.getId());
 
         clientToUpdate.setCpf(client.getCpf());
         clientToUpdate.setName(client.getName());
 
-        return clientRepository.save(clientToUpdate);
+        clientRepository.save(clientToUpdate);
     }
 }

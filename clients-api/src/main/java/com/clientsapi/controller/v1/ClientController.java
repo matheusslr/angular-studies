@@ -39,7 +39,8 @@ public class ClientController {
     }
 
     @PutMapping
-    public ResponseEntity<Client> update(@Valid @RequestBody Client client) {
-        return new ResponseEntity<>(clientService.update(client), HttpStatus.NO_CONTENT);
+    public ResponseEntity<Void> update(@Valid @RequestBody Client client) {
+        clientService.update(client);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
