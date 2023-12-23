@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Work {
+public class WorkProvided {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
