@@ -1,4 +1,4 @@
-package com.clientsapi.service;
+package com.clientsapi.service.v1;
 
 import com.clientsapi.exception.ResourceNotFound;
 import com.clientsapi.model.Client;

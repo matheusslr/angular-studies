@@ -1,31 +1,22 @@
-package com.clientsapi.model;
+package com.clientsapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Entity
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class WorkProvided {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(nullable = false, length = 150)
+public class WorkProvidedDTO {
     private String description;
-
-    @ManyToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
-
+    private Long idClient;
     private BigDecimal price;
-
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate date;
 }

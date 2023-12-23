@@ -1,7 +1,7 @@
 package com.clientsapi.controller.v1;
 
 import com.clientsapi.model.Client;
-import com.clientsapi.service.ClientService;
+import com.clientsapi.service.v1.ClientService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
