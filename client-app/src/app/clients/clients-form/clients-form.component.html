@@ -6,7 +6,7 @@
 <form #clientForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="row">
         <div class="col-md-12">
-            <div class="alert alert-success" role="alert" *ngIf="success == true">
+            <div class="alert alert-success" role="alert" *ngIf="success">
                 Customer successfully saved!
             </div>
             <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" *ngIf="client.id">
         <div class="col-md-6">
             <div class="form-group">
                 <label>ID:</label>
