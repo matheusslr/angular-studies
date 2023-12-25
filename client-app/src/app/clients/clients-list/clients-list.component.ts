@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ClientsService } from '../../clients.service';
+import { ClientService } from '../../clients.service';
 import { Client } from '../client';
 
 @Component({
@@ -15,7 +15,7 @@ export class ClientsListComponent implements OnInit {
   errorMessage!: String;
 
   constructor(
-    private clientService: ClientsService,
+    private clientService: ClientService,
     private router: Router
   ) { }
 

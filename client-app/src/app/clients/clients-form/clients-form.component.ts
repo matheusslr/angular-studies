@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientsService } from '../../clients.service';
+import { ClientService } from '../../clients.service';
 import { Client } from '../client';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -15,7 +15,7 @@ export class ClientsFormComponent implements OnInit {
   id!: number;
 
   constructor(
-    private service: ClientsService,
+    private service: ClientService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
