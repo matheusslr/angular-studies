@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientService } from '../../clients.service';
+import { ClientService } from '../../clients/clients.service';
 import { Client } from '../../clients/client';
-import { WorkProvidedService } from '../../work-provided.service';
+import { WorkProvidedService } from '../work-provided.service';
 import { WorkProvided } from '../work-provided';
 import { HttpClient } from '@angular/common/http';
 

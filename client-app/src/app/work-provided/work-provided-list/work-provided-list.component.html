@@ -1,1 +1,70 @@
-<p>work-provided-list works!</p>
+<h1 class="mt-4">Works Provided</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Our works</li>
+</ol>
+
+<form #workList="ngForm" (submit)="search()">
+    <div class="row">
+        <div class="col-md-6">
+            <label>Customer name</label>
+            <input type="text" class="form-control" [(ngModel)]="clientName" name="clientName">
+        </div>
+
+        <div class="col-md-6">
+            <label>Month: *</label>
+            <select [(ngModel)]="month" class="form-control" name="month">
+                <option>Select...</option>
+                <option *ngFor="let month of months" [value]="month">
+                    {{month}}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-primary">
+                <i class="fa fa-search"></i>
+                Search
+            </button>
+
+            <button type="button" class="btn btn-warning ml-2" routerLink="/work-provided-form">
+                <i class="fa fa-plus"></i>
+                New
+            </button>
+        </div>
+    </div>
+</form>
+
+<br />
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-warning" role="alert" *ngIf="errorMessage">
+            {{errorMessage}}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-condensed">
+            <thead>
+                <th>Customer</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Date</th>
+            </thead>
+            <tbody *ngFor="let work of workResponses">
+                <tr>
+                    <td>{{work.client.name}}</td>
+                    <td>{{work.description}}</td>
+                    <td>{{work.price}}</td>
+                    <td>{{work.date}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

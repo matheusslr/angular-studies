@@ -25,7 +25,7 @@ public class WorkProvidedController {
     @GetMapping
     public ResponseEntity<List<WorkProvided>> findByClientNameAndMonth(
             @RequestParam(value = "name", required = false, defaultValue = "") String name,
-            @RequestParam(value = "month") Integer month
+            @RequestParam(value = "month", required = false) Integer month
     ) {
         return ResponseEntity.ok(service.findByClientNameAndMonth(name, month));
     }
