@@ -1,73 +1,75 @@
-<h1 class="mt-4">Work Provided</h1>
-<ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Register</li>
-</ol>
+<div class="container-fluid">
+    <h1 class="mt-4">Work Provided</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Register</li>
+    </ol>
 
-<form #form="ngForm" (submit)="onSubmit()">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="alert alert-success" role="alert" *ngIf="success">
-                Work successfully saved!
-            </div>
-            <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
-                {{ error }}
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-                <label>Customer: </label>
-                <select class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="workProvided.idClient">
-                    <option value="">Select...</option>
-                    <option *ngFor="let client of clients" [ngValue]="client.id">
-                        {{client.name}}
-                    </option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-                <label>Description:</label>
-                <input class="form-control" [(ngModel)]="workProvided.description" type="text" name="description"
-                    id="inputDescription">
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>Date:</label>
-                <input class="form-control" [(ngModel)]="workProvided.date" type="text" name="date"
-                    id="inputDate">
+    <form #form="ngForm" (submit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="success">
+                    Work successfully saved!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
+                    {{ error }}
+                </div>
             </div>
         </div>
 
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>Price:</label>
-                <input class="form-control" [(ngModel)]="workProvided.price" type="text" name="price"
-                    id="inputPrice">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Customer: </label>
+                    <select class="form-control" [ngModelOptions]="{standalone: true}"
+                        [(ngModel)]="workProvided.idClient">
+                        <option value="">Select...</option>
+                        <option *ngFor="let client of clients" [ngValue]="client.id">
+                            {{client.name}}
+                        </option>
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-3">
-            <button class="btn btn-success" type="submit">
-                <i class="fa fa-save"></i>
-                Save
-            </button>
-
-            <button class="btn btn-danger ml-2" type="button" routerLink="/work-provided-list">
-                <i class="fa fa-arrow-alt-circle-left"></i>
-                Back
-            </button>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Description:</label>
+                    <input class="form-control" [(ngModel)]="workProvided.description" type="text" name="description"
+                        id="inputDescription">
+                </div>
+            </div>
         </div>
-    </div>
-</form>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Date:</label>
+                    <input class="form-control" [(ngModel)]="workProvided.date" type="text" name="date" id="inputDate">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Price:</label>
+                    <input class="form-control" [(ngModel)]="workProvided.price" type="text" name="price"
+                        id="inputPrice">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <button class="btn btn-success" type="submit">
+                    <i class="fa fa-save"></i>
+                    Save
+                </button>
+
+                <button class="btn btn-danger ml-2" type="button" routerLink="/work-provided-list">
+                    <i class="fa fa-arrow-alt-circle-left"></i>
+                    Back
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

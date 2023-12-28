@@ -10,11 +10,14 @@ import { HomeComponent } from './home/home.component';
 import { TemplateModule } from './template/template.module';
 import { WorkProvidedModule } from './work-provided/work-provided.module';
 import { WorkProvidedService } from './work-provided/work-provided.service';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { WorkProvidedService } from './work-provided/work-provided.service';
     TemplateModule,
     ClientsModule,
     HttpClientModule,
-    WorkProvidedModule
+    WorkProvidedModule,
+    FormsModule
   ],
   providers: [
     ClientService,
