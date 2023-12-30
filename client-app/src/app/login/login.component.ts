@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class LoginComponent {
   username!: string;
   password!: string;
+  error!: boolean | null;
 
   onSubmit() {
     console.log(this.username, this.password);
