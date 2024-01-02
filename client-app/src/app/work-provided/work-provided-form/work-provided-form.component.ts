@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientService } from '../../clients/clients.service';
 import { Client } from '../../clients/client';
-import { WorkProvidedService } from '../work-provided.service';
+import { ClientService } from '../../clients/clients.service';
 import { WorkProvided } from '../work-provided';
-import { HttpClient } from '@angular/common/http';
+import { WorkProvidedService } from '../work-provided.service';
 
 @Component({
   selector: 'app-work-provided-form',

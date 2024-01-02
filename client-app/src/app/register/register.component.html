@@ -1,0 +1,66 @@
+<div class="bg-primary">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header">
+                                    <h3 class="text-center font-weight-light my-4">
+                                        Create Account
+                                    </h3>
+                                </div>
+
+                                <div class="card-body">
+                                    <form #registerForm="ngForm" (submit)="onSubmit()">
+                                        <div class="form-group">
+                                            <label class="small mb-1">Username</label>
+                                            <input class="form-control py-4" type="text" [(ngModel)]="username"
+                                                name="username" placeholder="Enter username">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="small mb-1">Email</label>
+                                            <input class="form-control py-4" type="text" [(ngModel)]="email"
+                                                name="email" placeholder="Enter email address">
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <label class="small mb-1">Password</label>
+                                                <input class="form-control py-4" type="password" [(ngModel)]="password"
+                                                    name="password" placeholder="Enter password">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="small mb-1">Confirm Password</label>
+                                                <input class="form-control py-4" type="password"
+                                                    [(ngModel)]="confirmPassword" name="confirmPassword"
+                                                    placeholder="Confirm Password">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group mt-4">
+                                            <button type="submit" class="btn btn-primary btn-block">
+                                                Create Account
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="card-footer text-center">
+                                    <div class="small">
+                                        <a href="#" routerLink="/login">
+                                            Have an account? Go to login
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>

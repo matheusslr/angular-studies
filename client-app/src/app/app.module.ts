@@ -12,12 +12,14 @@ import { WorkProvidedModule } from './work-provided/work-provided.module';
 import { WorkProvidedService } from './work-provided/work-provided.service';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
