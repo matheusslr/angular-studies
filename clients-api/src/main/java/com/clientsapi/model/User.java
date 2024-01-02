@@ -6,9 +6,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Builder
@@ -22,6 +25,8 @@ public class User implements UserDetails {
     private Long id;
     @Column(unique = true, nullable = false)
     private String username;
+    @Column(unique = true, nullable = false)
+    private String email;
     @Column(nullable = false)
     private String password;
     @Column(name = "is_account_non_expired")
@@ -32,10 +37,19 @@ public class User implements UserDetails {
     private boolean isCredentialsNonExpired;
     @Column(name = "is_enabled")
     private boolean isEnabled;
+    @OneToOne
+    @JoinTable(
+            name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        authorities.add(new SimpleGrantedAuthority(role.getAuthority()));
+        return authorities;
     }
 
     @Override

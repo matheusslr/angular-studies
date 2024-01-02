@@ -1,2 +1,5 @@
-package com.clientsapi.enums;public enum RoleEnum {
+package com.clientsapi.enums;
+
+public enum RoleEnum {
+    ROLE_USER;
 }
