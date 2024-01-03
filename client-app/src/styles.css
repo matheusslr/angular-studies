@@ -10936,7 +10936,7 @@ body {
 #layoutAuthentication {
   display: flex;
   flex-direction: column;
-  min-height: 86.5vh;
+  min-height: 100vh;
 }
 
 #layoutAuthentication #layoutAuthentication_content {
