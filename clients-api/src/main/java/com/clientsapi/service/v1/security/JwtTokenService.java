@@ -27,6 +27,7 @@ public class JwtTokenService {
         Date now = new Date();
         Date validityTime = new Date(now.getTime() + EXPIRATION_TIME);
         String accessToken = getAccessToken(username, role, now, validityTime);
+        String refreshToken = getRefreshToken(username, role, now);
 
         return TokenDTO.builder()
                 .username(username)
@@ -34,6 +35,7 @@ public class JwtTokenService {
                 .createAt(now)
                 .expiresAt(validityTime)
                 .accessToken(accessToken)
+                .refreshToken(refreshToken)
                 .build();
     }
 
@@ -46,8 +48,18 @@ public class JwtTokenService {
                 .sign(Algorithm.HMAC256(SECRET_KEY));
     }
 
-    public String formatToken(String token){
-        if(token != null && token.startsWith("Bearer ")){
+    public String getRefreshToken(String username, Role role, Date now) {
+        Date validityRefreshTime = new Date(now.getTime() + EXPIRATION_TIME * 2);
+        return JWT.create()
+                .withSubject(username)
+                .withClaim("role", role.getAuthority())
+                .withIssuedAt(now)
+                .withExpiresAt(validityRefreshTime)
+                .sign(Algorithm.HMAC256(SECRET_KEY));
+    }
+
+    public String formatToken(String token) {
+        if (token != null && token.startsWith("Bearer ")) {
             return token.substring("Bearer ".length());
         }
         return null;
