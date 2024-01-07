@@ -1,6 +1,5 @@
 package com.clientsapi.dto;
 
-import com.clientsapi.model.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class TokenDTO {
     private String username;
-    private Role role;
+    private String role;
     private Date createAt;
     private Date expiresAt;
     private String accessToken;

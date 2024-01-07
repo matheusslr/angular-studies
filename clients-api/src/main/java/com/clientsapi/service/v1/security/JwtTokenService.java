@@ -31,7 +31,7 @@ public class JwtTokenService {
 
         return TokenDTO.builder()
                 .username(username)
-                .role(role)
+                .role(role.getAuthority())
                 .createAt(now)
                 .expiresAt(validityTime)
                 .accessToken(accessToken)
