@@ -1,6 +1,5 @@
 package com.clientsapi.filter;
 
-
 import com.clientsapi.service.v1.security.JwtTokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -20,7 +19,8 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     private JwtTokenService jwtTokenService;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
         String token = request.getHeader("Authorization");
         token = jwtTokenService.formatToken(token);
 

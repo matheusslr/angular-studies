@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 public class LoginDTO {
-    @NotEmpty(message = "${field.username.required}")
+    @NotEmpty(message = "{field.username.required}")
     private String username;
-    @NotEmpty(message = "${field.password.required}")
+    @NotEmpty(message = "{field.password.required}")
     private String password;
 }

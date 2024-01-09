@@ -31,8 +31,7 @@ public class AuthService {
             throw new BadRequestException("Params cannot be null");
 
         this.authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(dto.getUsername(), dto.getPassword())
-        );
+                new UsernamePasswordAuthenticationToken(dto.getUsername(), dto.getPassword()));
 
         User user = userRepository.findByUsername(dto.getUsername());
 

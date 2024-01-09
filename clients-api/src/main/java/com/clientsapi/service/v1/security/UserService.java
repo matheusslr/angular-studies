@@ -26,8 +26,7 @@ public class UserService implements UserDetailsService {
                 user.isAccountNonExpired(),
                 user.isCredentialsNonExpired(),
                 user.isAccountNonLocked(),
-                user.getAuthorities()
-        );
+                user.getAuthorities());
 
     }
 }

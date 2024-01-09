@@ -8,13 +8,13 @@ import lombok.Data;
 @Data
 @Builder
 public class RegisterDTO {
-    @NotEmpty(message = "${field.username.required}")
+    @NotEmpty(message = "{field.username.required}")
     private String username;
-    @NotEmpty(message = "${field.email.required}")
-    @Email(message = "${field.email.invalid}")
+    @NotEmpty(message = "{field.email.required}")
+    @Email(message = "{field.email.invalid}")
     private String email;
-    @NotEmpty(message = "${field.password.required}")
+    @NotEmpty(message = "{field.password.required}")
     private String password;
-    @NotEmpty(message = "${field.confirm-password.required}")
+    @NotEmpty(message = "{field.confirm-password.required}")
     private String confirmPassword;
 }

@@ -18,7 +18,7 @@ public class WorkProvidedService {
     private ClientService clientService;
     private final ModelMapper modelMapper = new ModelMapper();
 
-    public WorkProvided save(WorkProvidedDTO dto){
+    public WorkProvided save(WorkProvidedDTO dto) {
         WorkProvided workProvided = modelMapper.map(dto, WorkProvided.class);
         Client client = clientService.findById(dto.getIdClient());
 
