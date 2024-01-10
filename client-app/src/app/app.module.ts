@@ -15,6 +15,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { TemplateModule } from './template/template.module';
 import { WorkProvidedModule } from './work-provided/work-provided.module';
 import { WorkProvidedService } from './work-provided/work-provided.service';
+import { InterceptorModule } from './interceptors/interceptor.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { WorkProvidedService } from './work-provided/work-provided.service';
     ClientsModule,
     HttpClientModule,
     WorkProvidedModule,
-    FormsModule
+    FormsModule,
+    InterceptorModule
   ],
   providers: [
     ClientService,

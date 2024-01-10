@@ -20,4 +20,13 @@ export class AuthService {
   register(register: Register): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/register`, register);
   }
+
+  getToken() : string | null {
+    const tokenString = localStorage.getItem("access_token");
+    if (tokenString) {
+      const token = JSON.parse(tokenString).accessToken
+      return token;
+    }
+    return null;
+  }
 }

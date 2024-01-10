@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ClientService } from '../clients.service';
 import { Client } from '../client';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-clients-list',
@@ -11,8 +12,8 @@ import { Client } from '../client';
 export class ClientsListComponent implements OnInit {
   clients: Client[] = [];
   selectedClient!: Client;
-  successMessage!: String;
-  errorMessage!: String;
+  successMessage!: string;
+  errorMessage!: string;
 
   constructor(
     private clientService: ClientService,

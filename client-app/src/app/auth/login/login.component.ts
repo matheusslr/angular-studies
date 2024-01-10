@@ -18,9 +18,10 @@ export class LoginComponent {
     this.authService.login(this.user)
       .subscribe(
         response => {
-          console.log(response);
-          this.route.navigate(['/home']);
+          const access_token = JSON.stringify(response);
+          localStorage.setItem("access_token", access_token);
           this.errors = [];
+          this.route.navigate(['/home']);
         },
         errorResponse => this.errors = errorResponse.error.errors);
   }

@@ -17,7 +17,6 @@ export class RegisterComponent {
   onSubmit() {
     this.authService.register(this.register)
       .subscribe(response => {
-        console.log(response)
         this.successMessage = true;
         this.errors = [];
       }, errorResponse => {
