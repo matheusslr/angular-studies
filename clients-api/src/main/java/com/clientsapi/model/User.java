@@ -37,7 +37,7 @@ public class User implements UserDetails {
     private boolean isCredentialsNonExpired;
     @Column(name = "is_enabled")
     private boolean isEnabled;
-    @OneToOne
+    @ManyToOne
     @JoinTable(
             name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
