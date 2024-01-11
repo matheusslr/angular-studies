@@ -29,9 +29,11 @@ export class InterceptorService implements HttpInterceptor {
     return next.handle(req);
   }
 
-
   private isValidRequestForInterceptor(requestUrl: string): boolean {
-    return !this.urlsToNotUse.some((url) => requestUrl.startsWith(url));
+    for (let url of this.urlsToNotUse) {
+      if (requestUrl.includes(url))
+        return false;
+    }
+    return true;
   }
-
 }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { User } from './login/user';
@@ -11,7 +12,10 @@ import { Register } from './register/register';
 export class AuthService {
   baseUrl: string = environment.apiURLBase + "/api/v1/auth";
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) { }
 
   login(user: User): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/login`, user);
@@ -21,12 +25,26 @@ export class AuthService {
     return this.http.post<any>(`${this.baseUrl}/register`, register);
   }
 
-  getToken() : string | null {
+  getToken(): string | null {
     const tokenString = localStorage.getItem("access_token");
     if (tokenString) {
       const token = JSON.parse(tokenString).accessToken
       return token;
     }
     return null;
+  }
+
+  logout(): void {
+    localStorage.removeItem("access_token");
+    this.router.navigate(['/login']);
+  }
+
+  getUsername(): string {
+    const token = localStorage.getItem("access_token");
+    if (token){
+      const username = JSON.parse(token).username;
+      return username;
+    }
+    return "User not logged";
   }
 }
